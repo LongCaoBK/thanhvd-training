@@ -1,1 +1,0 @@
-# thanhvd-training
