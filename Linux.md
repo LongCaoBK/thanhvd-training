@@ -1,4 +1,27 @@
 # Tổng quan về Linux  
+**Sự khác biệt của Linux với Windows**  
+***Về lịch sử phát triển:***  
++  Linux miễn phí và là mã nguồn mở ngay từ khi mới ra đời năm 1991. Linux bắt đầu như một dự án, nhưng nó đã nhanh chóng trở thành một trong những dự án mã nguồn mở lớn nhất từ trước đến nay.  
++  Còn đối với Windows, phiên bản Windows 1.0 của Microsoft được phát hành vào năm 1985 và không giống như Linux, nó là một sản phẩm mã nguồn đóng hoàn toàn được Microsoft bán theo chương trình cấp phép.  
+- Về xử lý, can thiệp vào mã nguồn:  
++  Có thể chỉnh sửa, thay đổi các tính năng đối với Linux, nhưng với Windows thì không.  
++  Linux được cấp phép GNU Public License nên nó cho phép người dùng truy cập mã nguồn đến tận lõi của hệ điều hành.Còn đối với hệ điều hành Windows thì không, chỉ trừ khi là kỹ sư trong nhóm phát triển hệ điều hành Windows, còn không thì không có quyền truy cập vào mã nguồn này. Nó được bảo mật vô cùng cẩn thận.    
+***Về vấn đề bản quyền:***  
++  Để có quyền truy cập mã nguồn Linux thì phải được cấp phép. Cấp phép nghĩa là phần mềm sẽ có quyền được phân phối. Với giấy phép GPL của Linux, bạn có thể tự do sửa đổi OS đó, tái xuất bản nó và thậm chí bạn có thể thương mại nó, miễn là bạn cung cấp mã nguồn của nó, không giữ bí mật cho riêng mình.Với giấy phép GPL, bạn cũng có thể tải xuống bản sao của Linux và cài đặt nó trên bao nhiêu máy tùy ý.  
++  Còn giấy phép của Microsoft thì sẽ rất khác với giấy phép này, tức là bạn không thể sửa đổi mã nguồn vì Microsoft không bao giờ công bố mã nguồn của hệ điều hành này.  
++  Khi bạn  mua bản quyền Windows (đối với các cá nhân) thì chỉ sử dụng giấy phép đó cho cho một máy tính duy nhất. Còn các giấy phép dành cho máy doanh nghiệp thì khác,có thể sử dụng 1 key để kích hoạt cho nhiều máy tính.  
+***Về ứng dụng – phần mềm:***  
++  Với hầu hết các bản phối của hệ điều hành Linux,có một trung tâm để cài đặt các ứng dụng. Điều này giúp dễ dàng thêm các ứng dụng mới và xóa chúng đi khi không còn dùng đến.Tính năng quản lý gói của Linux cực kỳ hữu ích vì có thể tìm kiếm và cài đặt ứng dụng trực tiếp mà không cần phải dò tìm trên mạng. Và tất cả đều miễn phí.Trước đây, Windows không có kho ứng dụng của riêng mình. Với Windows, bạn phải lên Google và tìm kiếm những phần mềm của bên thứ 3 để cài đặt.Sau đó đến quá trình tải về máy rồi chạy file thực thi .exe để tiến hành cài đặt. Sau khi ứng dụng đã được cài đặt,cũng không biết nó đã thay đổi bao nhiêu tập tin hệ thống. Nhưng kể từ phiên bản Windows 8.x, Microsoft đã có kho ứng dụng riêng của mình – nó mang tên Windows Store, mặc dù còn hạn chế so với Linux nhưng nó cũng cung cấp khá nhiều phần mềm (cả miễn phí và trả phí), đáp ứng nhu cầu cơ bản của người dùng.  
+***Về khả năng sử dụng:***  
++  Linux rất phức tạp để cài đặt nhưng có khả năng hoàn thành các tác vụ phức tạp dễ dàng hơn.  
++  Windows cung cấp cho người dùng một hệ thống đơn giản để vận hành nhưng sẽ mất nhiều thời gian hơn để cài đặt.  
+***Về đối tượng sử dụng***  
+***Về bảo mật:*** Cả 2 đều có tính bảo mật nhưng linux có tính bảo mật cao hơn.  
+***Về khả năng hỗ trợ:*** Windows là một sản phẩm thương mại hoàn toàn nên về khâu support sẽ tốt hơn.  
+***Về cập nhật:***  
++  Linux, người dùng có toàn quyền kiểm soát các bản cập nhật, chúng tôi có thể cài đặt bất cứ khi nào chúng tôi cần và sẽ mất ít thời gian hơn mà không cần khởi động lại.
++  Windows, các bản cập nhật sẽ đến vào những thời điểm bất tiện như bạn đang in một bản in cho máy in nhưng đột nhiên bản cập nhật bật lên sẽ khiến người dùng bực bội và mất nhiều thời gian hơn để cài đặt.  
+
 ### Tổng quan  
 #### Kiến trúc  
 Kiến trúc hệ điều hành Linux chia làm 3 phần:  
