@@ -3,7 +3,7 @@
 ***Về lịch sử phát triển:***  
 +  Linux miễn phí và là mã nguồn mở ngay từ khi mới ra đời năm 1991. Linux bắt đầu như một dự án, nhưng nó đã nhanh chóng trở thành một trong những dự án mã nguồn mở lớn nhất từ trước đến nay.  
 +  Còn đối với Windows, phiên bản Windows 1.0 của Microsoft được phát hành vào năm 1985 và không giống như Linux, nó là một sản phẩm mã nguồn đóng hoàn toàn được Microsoft bán theo chương trình cấp phép.  
-- Về xử lý, can thiệp vào mã nguồn:  
+***Về xử lý, can thiệp vào mã nguồn:***  
 +  Có thể chỉnh sửa, thay đổi các tính năng đối với Linux, nhưng với Windows thì không.  
 +  Linux được cấp phép GNU Public License nên nó cho phép người dùng truy cập mã nguồn đến tận lõi của hệ điều hành.Còn đối với hệ điều hành Windows thì không, chỉ trừ khi là kỹ sư trong nhóm phát triển hệ điều hành Windows, còn không thì không có quyền truy cập vào mã nguồn này. Nó được bảo mật vô cùng cẩn thận.    
 ***Về vấn đề bản quyền:***  
