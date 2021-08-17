@@ -20,6 +20,7 @@ Prometheus hỗ trợ 3 hình thức cài đặt các thành phần hệ thống
 -  Tự động nhận diện mục tiêu hoặc cấu hình tĩnh.  
 -  Giao diện người dùng hỗ trợ phong phú, nhiều loại biểu đồ.  
 -  Quản lý được trên Cloud và máy chủ vật lý. Được dùng phổ biến để giám sát các hệ thống container và microservices.  
+
 ***Mô hình dữ liệu đa chiều***  
 Prometheus lưu trữ dữ liệu dưới dạng chuỗi thời gian time series . Chuỗi thời gian là luồng các giá trị theo timestamp của các giá trị được đánh dấu cùng một label hoặc metrics. Label chính là điều tạo nên khả năng đa chiều các dữ liệu trong Prometheus ( phân chia theo host, machine, service ...)  
 Ví dụ: muốn giám sát được số lượng HTTP request trên API, chúng ta có thể tạo metric api_http_request_total. Để metric trở nên đa chiều ta sử dụng các label. Label chỉ là các giá trị key-value. Trong trường hợp này ta có thể thêm label method để nhận HTTP method làm giá trị trong metric mới.  
