@@ -42,6 +42,7 @@ Prometheus được sinh ra để giải quyết 1 số vấn để sau:
 -  Giám sát các chương trình phần mềm: lỗi phần mềm, độ trễ,...  
 -  Nhanh chóng nhận diện sự cố, nguồn gốc phát sinh, cung cấp thông tin cụ thể cho developer kịp thời xử lý.  
 -  Tự động giám sát và đưa ra cảnh báo.  
+
 **Hệ thống phân tán là gì ?**  
 Hệ thống phân tán là một hệ thống bao gồm nhiều thành phần hoạt động đôc lập, trao đổi và làm việc với nhau (qua mạng) để giải quyết một vấn đề cụ thể.  
 Các thành phần trong hệ thống phân tán có thể là một máy tính (máy vật lý hoặc máy ảo), container, hay bất kỳ thiết bị kết nối mạng nào, có bộ nhớ local và có thể giao tiếp với nhau thông qua mạng máy tính.  
