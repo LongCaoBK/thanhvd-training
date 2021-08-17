@@ -20,13 +20,14 @@ Prometheus hỗ trợ 3 hình thức cài đặt các thành phần hệ thống
 -  Tự động nhận diện mục tiêu hoặc cấu hình tĩnh.  
 -  Giao diện người dùng hỗ trợ phong phú, nhiều loại biểu đồ.  
 -  Quản lý được trên Cloud và máy chủ vật lý. Được dùng phổ biến để giám sát các hệ thống container và microservices.  
-
+***Mô hình dữ liệu đa chiều***  
+Prometheus lưu trữ dữ liệu dưới dạng chuỗi thời gian time series . Chuỗi thời gian là luồng các giá trị theo timestamp của các giá trị được đánh dấu cùng một label hoặc metrics. Label chính là điều tạo nên khả năng đa chiều các dữ liệu trong Prometheus ( phân chia theo host, machine, service ...)  
+Ví dụ: muốn giám sát được số lượng HTTP request trên API, chúng ta có thể tạo metric api_http_request_total. Để metric trở nên đa chiều ta sử dụng các label. Label chỉ là các giá trị key-value. Trong trường hợp này ta có thể thêm label method để nhận HTTP method làm giá trị trong metric mới.  
 ***Ưu điểm và nhược điểm của Prometheus***  
 
 **Ưu điểm**  
--  Độ tin cậy cao  
+-  Độ tin cậy cao. Vì được tích hợp sẵn bằng cách làm cho mỗi máy chủ Prometheus trở nên độc lập với lưu trữ cơ sở dữ liệu chuỗi thời gian cục bộ, để tránh phụ thuộc vào bất kỳ dịch vụ từ xa nào.  
 -  Độc lập và không phụ thuộc vào bên ngoài: do đó khi hệ thống có bất kỳ sự có gì, Prometheus vẫn có thể tiến hành giám sát mà không bị gián đoạn.  
--  Không cần mở rộng cơ sở hạ tầng  
 
 **Nhược điểm**  
 -  Hơi phức tạp nếu cần mở rộng trong trường hợp đối tượng cần giám sát tăng lên.  
@@ -36,11 +37,14 @@ Prometheus hỗ trợ 3 hình thức cài đặt các thành phần hệ thống
 ### 2.Tại sao nó được sinh ra?  
 Do công việc Development và Operations ngày càng trở lên áp lực vì hệ thống là sự tổng hợp vô số các thành phần khác nhau và có các nhu cầu quản trị, điều hành, bảo trì,...  Ví dụ trong môi trường containerized như Docker, Kubernetes, khi có vô số máy chủ chạy hàng ngàn container và có sự liên kết lẫn nhau thì việc đảm bảo cho hệ thống ổn định, vận hành trơn tru là một nhiệm vụ khá khó. 
 Prometheus được sinh ra để giải quyết 1 số vấn để sau:  
--  Giám sát hệ thống tài nguyên phân tán.  
+-  Giám sát hệ thống phân tán.  
 -  Giám sát tình trạng máy chủ: CPU, memory, hdd, lỗi hệ thống, server ngừng hoạt động,...  
 -  Giám sát các chương trình phần mềm: lỗi phần mềm, độ trễ,...  
 -  Nhanh chóng nhận diện sự cố, nguồn gốc phát sinh, cung cấp thông tin cụ thể cho developer kịp thời xử lý.  
 -  Tự động giám sát và đưa ra cảnh báo.  
+**Hệ thống phân tán là gì ?**  
+Hệ thống phân tán là một hệ thống bao gồm nhiều thành phần hoạt động đôc lập, trao đổi và làm việc với nhau (qua mạng) để giải quyết một vấn đề cụ thể.  
+Các thành phần trong hệ thống phân tán có thể là một máy tính (máy vật lý hoặc máy ảo), container, hay bất kỳ thiết bị kết nối mạng nào, có bộ nhớ local và có thể giao tiếp với nhau thông qua mạng máy tính.  
 
 ### 3.Nó hoạt động như thế nào? Luồng hoạt động với các thành phần khác trong stack ra sao?  
 ***Cách Prometheus hoạt động:***  
@@ -53,6 +57,8 @@ Prometheus thực hiện quá trình kéo(pull) các thông số/số liệu(met
 **Exporters**  
 Exporter về cơ bản như là 1 loại hình dịch vụ (Services) có khả năng thu thập các chỉ số từ đối tượng cần giám sát, sau đó chuyển đổi thành định dạng mà Prometheus có thể hiểu. Exporter cũng cung cấp 1 địa chỉ Endpoint đúng theo yêu cầu mà Prometheus cần.  
 Danh sách exporter trải dài từ cơ sở dữ liệu (MongoDB, MySql, PostgreSQL,...), phần cứng (NVIDIA GPU, Fortigate, Netgear Router, IoT Edison,...), lưu trữ (Hadoop HDFS FSImage, ScaleIO, GPFS, Gluster,...), máy chủ web (Apache, Nginx, HAProxy,...), hoặc là các nền tảng đám mây như AWS, Cloudflare, DigitalOcean,...  
+**Exporter lấy metrics rồi đẩy ra đâu?**  
+Exporter giúp thu thập các chỉ số từ đối tượng cần giám sát, sau đó chuyển đổi thành định dạng mà Prometheus có thể hiểu. Sau đó đẩy các metrics về service của Prometheus.  
 
 **Client Libraries**  
 Prometheus cung cấp bộ thư viện được viết bằng rất nhiều ngôn ngữ lập trình như Go, Java, NodeJS, Ruby, C++, C#,...  
@@ -64,3 +70,5 @@ Thư viện này giúp chúng ta tạo ra endpoint “/metrics” theo nhu cầu
 
 ### 4.Alert rule là gì?  
 Alert rule là các quy tắc cảnh báo được đặt ra để xác định những chỗ phá vỡ quy tắc này và gửi cảnh báo đến Alertmanager. Alert rule chạy cùng ngay trong service Prometheus. Alertmanager sẽ quản lý các cảnh báo (alert), xử lý nội dung alert nếu có tuỳ biến này và điều hướng đầu tiếp nhận thông tin cảnh báo như email,sky, call,…  
+Alerts rule là một dạng record rule đặc biệt khi mà kết quả của biểu thức sẽ là cơ sở để tạo alert của Prometheus gửi đi alertmanager  
+
