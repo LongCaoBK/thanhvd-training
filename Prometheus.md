@@ -75,8 +75,14 @@ Alert rule là các quy tắc cảnh báo được đặt ra để xác định 
 Alerts rule là một dạng record rule đặc biệt khi mà kết quả của biểu thức sẽ là cơ sở để tạo alert của Prometheus gửi đi alertmanager  
 
 **Cài đặt prometheus**  
+
 <img src="https://github.com/vuducthanh0115/img/blob/main/anh/1.png" width="800" height="400" />  
+
 <img src="https://github.com/vuducthanh0115/img/blob/main/anh/2.png" width="800" height="400" />  
+
 <img src="https://github.com/vuducthanh0115/img/blob/main/anh/3.png" width="800" height="400" />  
+
 <img src="https://github.com/vuducthanh0115/img/blob/main/anh/4.png" width="800" height="400" />  
+
 <img src="https://github.com/vuducthanh0115/img/blob/main/anh/5.png" width="800" height="400" />  
+
