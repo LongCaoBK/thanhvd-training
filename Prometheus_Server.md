@@ -124,6 +124,11 @@ expr: <string>
 labels:
   [ <labelname>: <labelvalue> ] 
 ```
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/recording%20rules.png"></div>  
+
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/recording%20rules_2.png"></div>  
+
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/recording%20rules_3.png"></div>
 
 #### Alerting rules
 
@@ -544,4 +549,34 @@ Receivers: Cấu hình thông tin các nơi nhận. Ví dụ như tên đăng nh
 Khi các exporter monitor đã được cài đặt, Prometheus cần phải biết các exporter ở đâu ? để tiến hành scrape metrics và có thể thông báo tình trạng sẵn sàng của exporter đó thông qua việc truy vấn tới. Với môi trường mạng ổn định, có thể 1 list danh sách địa chỉ các instance đủ để Prometheus scape dữ liệu. Nhưng với các môi trường mạng động: docker, kubernetes , aws, .. thì cần có service discovery để cung cấp cơ chế cho Prometheus cập nhật thông tin các exporter trong mạng một cách tự động.  
 
 Prometheus có hỗ trợ Service Discovery cho EC2, Kubernetes, Consul, Azure .. hoặc có thể tự tạo custom Service Discovery  
+  
+## Kết quả thực hành  
+
+### Alert  
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alert_1.png"></div>  
+  
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alert_2.png"></div>  
+
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alert_3.png"></div>  
+  
+### Memory còn trống dưới 98% và gửi cảnh báo về webhook + gmail  
+
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alertmanager_5.png"></div>  
+
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alertmanager_2.png"></div>  
+ 
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alertmanager.png"></div>  
+  
+### Metric trên Grafana  
+
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/node_exporter.png"></div>  
+  
+### cAdvisor  
+  
+cAdvisor là 1 dự án Open source của Google mục đích để phân tích mức độ sử dụng, hiệu năng, và rất nhiều thông số khác từ các ứng dụng Container, cung cấp cho người dùng cái nhìn tổng quan về toàn bộ các container đang chạy.  
+  
+### Node-exporter  
+  
+Prometheus Node Exporter là một chương trình exporter viết bằng ngôn ngữ Golang. Exporter là một chương trình được sử dụng với mục đích thu thập, chuyển đổi các metric không ở dạng kiểu dữ liệu chuẩn Prometheus sang chuẩn dữ liệu Prometheus. Sau đấy exporter sẽ expose web service api chứa thông tin các metrics hoặc đẩy về Prometheus.  
+Node Exporter này sẽ đi thu thập các thông số về máy chủ Linux như : ram, load, cpu, disk, network,…. từ đó tổng hợp và xuất ra kênh truy cập các metrics hệ thống này ở port TCP 9100 để Prometheus đi lấy dữ liệu metric cho việc giám sát.  
 
