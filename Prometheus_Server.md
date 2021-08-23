@@ -567,6 +567,8 @@ Prometheus có hỗ trợ Service Discovery cho EC2, Kubernetes, Consul, Azure .
  
 <div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/alertmanager.png"></div>  
   
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/mail.png"></div>  
+  
 ### Metric trên Grafana  
 
 <div style="text-align:center"><img src="https://github.com/vuducthanh0115/Anh/blob/master/Learn%20about%20GIT/node_exporter.png"></div>  
