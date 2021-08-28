@@ -1,85 +1,5 @@
 # Thực hành cài đặt Prometheus để giám sát Server và Container 
 
-## 1. Cài đặt Virtual Machine Manager 
-
-Để kiểm tra xem hệ thống Ubuntu có hỗ trợ ảo hóa hay không, hãy chạy lệnh sau.
-
-`$ egrep -c '(vmx | svm)' / proc / cpuinfo` 
-
-Kết quả khác 0 thì ảo hóa được hỗ trợ. 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/1.png"></div> 
-
-Như trên máy đã hộ trợ  ảo hóa  
-
-Kiểm tra hệ thống đã hỗ trợ KVM chưa  
-Dùng lệnh :`$ sudo kvm-ok`  
-
-Nếu chưa ta dùng lệnh sau cài đặt : `$ sudo apt install cpu-checker`  
-
-Tiếp theo kiểm tra lại : `$ sudo kvm-ok`  
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/2.png"></div> 
-
-**Cài đặt KVM trên Ubuntu**  
-
-Dùng lệnh: `$ sudo apt install -y qemu qemu-kvm libvirt-daemon libvirt-clients bridge-utils virt-manager`  
-
-Trong đó:  
-- qemu-kvm: Phần phụ trợ cho KVM.  
-- libvirt-bin: cung cấp libvirt mà bạn cần quản lý qemu và KVM bằng libvirt.  
-- bridge-utils: chứa một tiện ích cần thiết để tạo và quản lý các thiết bị bridge.  
-- virt-manager: cung cấp giao diện đồ họa để quản lý máy ảo.  
-
-Xác nhận rằng daemon ảo hóa - libvritd-daemon - đang chạy.  
-
-Ta thực hiện lệnh:  
-
-`$ sudo systemctl status libvirtd`  
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/3.png"></div> 
-
-Cho phép nó bắt đầu khi khởi động bằng lệnh: `$ sudo systemctl enable --now libvirtd`
-
-Để kiểm tra xem các modules KVM đã được tải chưa bằng lệnh:`$ lsmod | grep -i kvm`  
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/4.png"></div> 
-
-
-## Tạo linux bridge cho VM kết nối mạng 
-
-- Tạo linux bridge có tên thanhvu
-`sudo nmcli connection add type bridge autoconnect yes con-name thanhvu ifname thanhvu`
-
-- Add card eno1 vào bridge
-`sudo brctl addif thanhvu eno1`
-
-- Xóa IP của card eno1
-`sudo ifconfig eno1 0`
-
-- Xin cấp IP cho bridge
-`sudo dhclient thanhvu` 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/5.png"></div> 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/6.png"></div> 
-
-## Cài đặt Ubuntu 20.04 trên VMM 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/7.png"></div> 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/8.png"></div> 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/9.png"></div> 
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/10.png"></div> 
-
-***Chọn đúng bridge đã tạo ở trên***  
-
-<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/11.png"></div> 
-
-
-
 ## Cài đặt Prometheus và các Exporter cần thiết cho VM 
 
 Đầu tiên chúng ta sẽ cài đặt prometheus và cài đặt node_exporter cho VM 2 chương trình này chúng ta có thể tải tại [Prometheus](https://prometheus.io/download/) 
@@ -241,8 +161,9 @@ Nhỏ hơn 10% thì cảnh báo
   annotations:
     summary: "CPU load (instance {{ $labels.instance }})"
     description: "CPU load (15m) is high\n  VALUE = {{ $value }}\n  LABELS:
-```
+``` 
 
+<div style="text-align:center"><img src="https://github.com/vuducthanh0115/Documents/blob/main/Image/34.png"></div>
 
 ### cAdvisor 
 
